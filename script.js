@@ -300,11 +300,11 @@ imageGrid.addEventListener("keydown", event => {
   }
 });
 searchInput.addEventListener("input", () => {
-  state.query = searchInput.value;
-  clearSearch.hidden = !state.query;
-  state.favoritesOnly = false;
-  $("#showFavorites").classList.remove("active");
-  renderGallery();
+    state.query = searchInput.value.trim().toLowerCase();
+    clearSearch.hidden = state.query.length === 0;
+    state.favoritesOnly = false;
+    $("#showFavorites").classList.remove("active");
+    renderGallery();
 });
 clearSearch.addEventListener("click", () => {
   searchInput.value = "";
